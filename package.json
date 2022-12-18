@@ -1,0 +1,34 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.js --BROWSER_NAME='chrome' --RUNNER='local' --timeout 120000 --report",
+    "remote-test": "mocha tests/*.js --BROWSER_NAME='chrome' --RUNNER='remote' --timeout 120000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizaburak/framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizaburak/framework/issues"
+  },
+  "homepage": "https://github.com/lizaburak/framework#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chai-things": "^0.2.0",
+    "istanbul-cobertura-badger": "^1.3.1",
+    "minimist": "^1.2.7",
+    "mocha": "^10.1.0",
+    "mocha-logger": "^1.0.8",
+    "selenium-webdriver": "^4.6.1"
+  },
+  "devDependencies": {
+    "chromedriver": "^107.0.3",
+    "geckodriver": "^3.2.0"
+  }
+}
