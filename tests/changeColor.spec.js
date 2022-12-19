@@ -39,7 +39,7 @@ describe('Change color test.', () => {
     if (this.currentTest.state !== "passed") {
       const image = await this.driver.takeScreenshot();
       await require('fs').writeFile(
-          './screenshots/searchFail.png',
+          './screenshots/changeColorFail.png',
           image,
           'base64',
           (err) => {});

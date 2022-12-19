@@ -41,7 +41,7 @@ describe('Sort elements test.', () => {
     if (this.currentTest.state !== "passed") {
       const image = await this.driver.takeScreenshot();
       await require('fs').writeFile(
-          './screenshots/searchFail.png',
+          './screenshots/sortFail.png',
           image,
           'base64',
           (err) => {});

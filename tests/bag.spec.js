@@ -120,7 +120,7 @@ describe('Bag action test.', () => {
     if (this.currentTest.state !== "passed") {
       const image = await this.driver.takeScreenshot();
       await require('fs').writeFile(
-          './screenshots/searchFail.png',
+          './screenshots/bagFail.png',
           image,
           'base64',
           (err) => {});
