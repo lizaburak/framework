@@ -9,6 +9,7 @@ const Driver = require("../driver/Driver");
 const ItemPage = require("../pages/ItemPage");
 
 const Item = require("../models/Item");
+const User = require("../models/User");
 
 const { TEST_TIMEOUT } = require("../config/constants");
 
@@ -22,6 +23,11 @@ describe('Bag action test.', () => {
     const bagProps = await DataReader.getTestData("bag.properties");
     for (const key in bagProps) {
         this[key] = bagProps[key];
+    }
+
+    const userProps = await DataReader.getTestData("user.properties");
+    for (const key in userProps) {
+        this[key] = userProps[key];
     }
   })
 
@@ -63,13 +69,14 @@ describe('Bag action test.', () => {
     await itemPage.clickClosePopupButton();
 
     const bagPage = await itemPage.clickBagButton();
-    await bagPage.inputCity(this.city);
-    await bagPage.inputStreet(this.street);
-    await bagPage.inputHouse(this.house);
-    await bagPage.inputFlat(this.flat);
-    await bagPage.inputName(this.name);
-    await bagPage.inputPhone(this.phone);
-    await bagPage.inputEmail(this.email);
+    const user = new User(this.name, this.phone, this.email, this.city, this.street, this.house, this.flat)
+    await bagPage.inputCity(user.getCity());
+    await bagPage.inputStreet(user.getStreet());
+    await bagPage.inputHouse(user.getHouse());
+    await bagPage.inputFlat(user.getFlat());
+    await bagPage.inputName(user.getFullName());
+    await bagPage.inputPhone(user.getPhone());
+    await bagPage.inputEmail(user.getEmail());
 
     const checkoutButton = await bagPage.getCheckoutButton();
     const checkoutButtonText = await bagPage.getItemText(checkoutButton);
